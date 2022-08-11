@@ -1,11 +1,13 @@
 const axios = require('axios')
 
 const postApi = async (req, res, next) => {
-	let reqData = req.body
+	let reqData = req.body.param
+	req.body.key = 'ya29.c.b0AXv0zTPYpMwXCvHAvNc6WY9ucvnFaX_wkOEF95gXRnsxIadsAKxkZPGCqiKQ4QSvSaIHhC5bH8lQtEzzEyTBmK5m2XKFMC5C0soj27gy0KHLcwwtiDrzrHi7sTt8sOxjHYikJUORPjnH7vzvWOngSDj-PTqSTo_s3A4KupV2AvLZJljMsvvOhaTNYLusvOWaDH_vrfmoWy7r5zbKz4Zy1v28WqoaTJI'
+
 	try {
 		response = await axios({
 			method: 'post',
-			url: `https://cloudoptimization.googleapis.com/v1/projects/development-353207:optimizeTours?access_token=ya29.c.b0AXv0zTPjIvlZYYTpI-aUYLtbv0BLhh2v36GDb-hO1N6Q5qFBulE5nIj8p7aBlvu_1BtpG1vYohpFsQd6__1nhGrXUg2OTxw7QdOG-DjSm4uFgMEjcXJKJSjMbcxrjuHNkOINvlQjr6R11zU2Vs70POpe7j6I62PlN2vCNjq9l94L7bCnj7EqBrQOfpecqJ3r33Ov9CBi1SSBBn1v1KHo3Q5mwqLS7W0`,
+			url: `https://cloudoptimization.googleapis.com/v1/projects/development-353207:optimizeTours?access_token=${req.body.key}`,
 			data: reqData
 		})
 
